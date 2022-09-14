@@ -25,7 +25,7 @@ body {
     margin: 20px;
 }
 #display {
-    width: 100%;
+    width: 300px;
     height: 100px;
     background-color: #666;
     color: #fff;
@@ -36,6 +36,7 @@ body {
     align-items: flex-end;
     justify-content: flex-end;
     padding-bottom: 5px;
+    word-wrap: break-word;
 }
 button {
     width: 60px ;
@@ -52,11 +53,12 @@ button {
     flex-wrap: wrap;
     padding: 5px;
 }
-.operator {
+.operator, #clear, #delete, #equal{
     background-color: rgb(14, 94, 131);
     font-size: 22px;
     font-weight: 900;
 }
+
 .number {
     background-color: #555;
     font-size: 20px;
