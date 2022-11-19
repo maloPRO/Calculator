@@ -10,7 +10,7 @@ const buttons = document.querySelectorAll('button');
 answer.textContent = '';
 output.textContent = '';
 
-let add = (a, b) => parseInt(a) + parseInt(b);
+let add = (a, b) => a + b;
 let subtract = (a, b) => a - b;
 let multiply = (a, b) => a * b;
 let divide = (a, b) => a / b;
@@ -39,7 +39,7 @@ deleteBtn.addEventListener('click', () => {
 });
 
 const getNum1 = () => {
-  num = parseInt(output.textContent);
+  num = parseFloat(output.textContent);
   return num;
     
 }
@@ -49,16 +49,16 @@ const getNum2 = () => {
   var operand = getOperator();
 
   if (operand === '+') {
-    num = parseInt(numStr.slice(numStr.indexOf('+') +1, numStr.length ));
+    num = parseFloat(numStr.slice(numStr.indexOf('+') +1, numStr.length ));
     return num;
   } else if (operand === '-') {
-    num = parseInt(numStr.slice(numStr.indexOf('-') +1, numStr.length ));
+    num = parseFloat(numStr.slice(numStr.indexOf('-') +1, numStr.length ));
     return num;
   } else if (operand === '*') {
-    num = parseInt(numStr.slice(numStr.indexOf('*') +1, numStr.length ));
+    num = parseFloat(numStr.slice(numStr.indexOf('*') +1, numStr.length ));
     return num;
   } else if (operand === '/') {
-    num = parseInt(numStr.slice(numStr.indexOf('/') +1, numStr.length ));
+    num = parseFloat(numStr.slice(numStr.indexOf('/') +1, numStr.length ));
     return num;
   }
 }
