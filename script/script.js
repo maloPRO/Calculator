@@ -1,63 +1,107 @@
-function add(a,b) {
-    return parseInt(a) + parseInt(b);
-}
-
-function subtract(a,b) {
-    return parseInt(a) - parseInt(b);
-}
-
-function divide(a,b) {
-    return parseInt(a) / parseInt(b);
-}
-
-function multiply(a,b) {
-    return parseInt(a) * parseInt(b);
-}
-
-
-// ----------------------------------------------
-
-const display = document.querySelector('#display');
-const numbers = document.querySelectorAll('.number');
 const operators = document.querySelectorAll('.operator');
+const numbers = document.querySelectorAll('.number');
+const equalBtn = document.getElementById('equal');
+const clearBtn = document.getElementById('clear');
+const deleteBtn = document.getElementById('delete');
+const output = document.getElementById('output');
+const answer = document.getElementById('answer');
 const buttons = document.querySelectorAll('button');
-const clear = document.querySelector('#clear');
-const del = document.querySelector('#delete');
 
-//clear button
-clear.addEventListener('click', () => {
-    display.textContent = '';
-});
+answer.textContent = '';
+output.textContent = '';
 
-//delete button
-del.addEventListener('click', () => {
-    let str = display.textContent.toString();
-    display.textContent = str.slice(0, -1);
+let add = (a, b) => parseInt(a) + parseInt(b);
+let subtract = (a, b) => a - b;
+let multiply = (a, b) => a * b;
+let divide = (a, b) => a / b;
 
-});
 
-//number buttons
 numbers.forEach((number) => {
-    number.addEventListener('click', () => {
-        display.textContent += number.id;
-    })
+  number.addEventListener('click', () => {
+    output.textContent += number.id;
+  })
 });
 
-//operators
 operators.forEach((operator) => {
-    operator.addEventListener('click', () => {
-        display.textContent += operator.id;
-    })
+  operator.addEventListener('click', () => {
+    output.textContent += operator.id;
+  })
 });
 
-function calculate () { 
+clearBtn.addEventListener('click', () => {
+  output.textContent = '';
+  answer.textContent = '';
+});
+
+deleteBtn.addEventListener('click', () => {
+  var str = output.textContent;
+  output.textContent = str.substring(0, str.length -1)
+});
+
+const getNum1 = () => {
+  num = parseInt(output.textContent);
+  return num;
     
 }
 
-//-------------------------------------------
+const getNum2 = () => {
+  var numStr = output.textContent;
+  var operand = getOperator();
 
-const equal = document.getElementById('equal');
-equal.addEventListener('click', calculate);
+  if (operand === '+') {
+    num = parseInt(numStr.slice(numStr.indexOf('+') +1, numStr.length ));
+    return num;
+  } else if (operand === '-') {
+    num = parseInt(numStr.slice(numStr.indexOf('-') +1, numStr.length ));
+    return num;
+  } else if (operand === '*') {
+    num = parseInt(numStr.slice(numStr.indexOf('*') +1, numStr.length ));
+    return num;
+  } else if (operand === '/') {
+    num = parseInt(numStr.slice(numStr.indexOf('/') +1, numStr.length ));
+    return num;
+  }
+}
+
+const getOperator = () => {
+  var numStr = output.textContent;
+  for(const operand of operators) {
+    var operator = numStr.slice(numStr.indexOf(`${operand.id}`), numStr.indexOf(`${operand.id}`) +1 );
+      if (operator === '+') {
+        return operator;
+      } else if (operator === '-') {
+        return operator;
+      } else if (operator === '*') {
+        return operator;
+      } else if (operator === '/') {
+        return operator;
+      }
+    }
+}
+
+const evaluate = (num1, num2, op) => {
+  num1 = getNum1();
+  num2 = getNum2();
+  op = getOperator();
+
+  if (op === '+') {
+    return add(num1,num2)
+  } else if (op === '-') {
+    return subtract(num1, num2)
+  } else if (op === '*') {
+    return multiply(num1, num2)
+  } else if (op === '/') {
+    return divide(num1, num2)
+  }
+}
+
+equalBtn.addEventListener('click', () => {
+  answer.textContent = evaluate();
+})
+
+
+
+
 
 
 

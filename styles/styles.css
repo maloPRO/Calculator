@@ -1,69 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,300&family=Rubik+Dirt&display=swap');
+
 * {
     box-sizing: border-box;
+   
+}
+#header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #fff;
+}
+#header-main {
+    margin: 20px auto 0 auto;
+}
+#header-text {
+    margin: 0;
 }
 body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url('/images/xubuntu-zesty.png');
-}
-#container {
-    width: 800px ;
-    background-color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
+    background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/images/bg.jpg');
+    background-size: 100%;
+
 }
 #calculator {
     display: flex;
     flex-direction: column;
-    width: 300px;
-    height: 450px;
-    background-color: #222;
-    border-radius: 5px;
-    margin: 20px;
+    width: 17rem;
+    height: 25rem;
+    background: white;
+    background-size: 100%;
+    border-radius: 10px;
+    margin: 15px 20px;
+    box-shadow: 0 0 16px 5px rgba(0,0,0,0.6);
+    padding: .5em;
+    align-items: center;   
+    
+}
+.calcName {
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    font-weight: 900;
 }
 #display {
-    width: 300px;
-    height: 100px;
-    background-color: #666;
+    width: 90%;
+    height: 20%;
+    background-color: #444;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 2px;
+    outline: 1px solid #333;
+    border: none;
+
+}
+#answer {
+    width: 100%;
+    height: 150px;
     color: #fff;
-    font-size: 35px;
+    font-size: 26px;
     font-weight: 900;
-    border-radius: 5px 5px 0 0;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
-    padding-bottom: 5px;
-    word-wrap: break-word;
+    overflow: hidden;
+    padding: .2em;
+
 }
-button {
-    width: 60px ;
-    height: 60px ;
-    border-radius: 50%;
-    border: none;
+#output {
+    width: 100%;
+    height: 3rem;
     color: #fff;
-    margin: 5px;
-}
-#keypad {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 5px;
-}
-.operator, #clear, #delete, #equal{
-    background-color: rgb(14, 94, 131);
-    font-size: 22px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
     font-weight: 900;
+    display: flex;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding: .2em;
 }
 
+#keypad {
+    width: 90%;
+    height: 68%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+    padding: 10px 0 0 0 ;
+    
+}
+.btn,
+.eql {
+    width: 100%;
+    height: 100%;
+    padding: 3px;
+}
+.btn button {
+    border: none;
+    width: 100%;
+    height: 100%;
+}
 .number {
-    background-color: #555;
-    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgb(13, 12, 12);
+    color: #fffada;
+}
+.number:hover {
+    cursor: pointer;
+    background-color: rgb(34, 32, 32);
     font-weight: 900;
 }
-.empty {
-    background-color: #222;
+.operator,
+#delete,
+#clear {   
+    background-color: rgb(13, 42, 56);
+    color: #fffada;
+    font-weight: 500;
+}
+.operator:hover,
+#delete:hover,
+#clear:hover {
+    cursor: pointer;
+    background-color: rgba(10, 35, 47, 0.904);
+    font-weight: 900;
+}
+.eql {
+    grid-area: 5/3/6/5;
+}
+#equal {
+    border: none;
+    background-color: rgb(253, 3, 3);
+    color: #fffada;
+    width: 100%;
+    height: 100%;
+}
+#equal:hover {
+    cursor: pointer;
+    background-color: rgb(184, 10, 10);
+    font-weight: 900;
 }
