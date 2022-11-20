@@ -96,7 +96,7 @@ const evaluate = (num1, num2, op) => {
 }
 
 equalBtn.addEventListener('click', () => {
-  answer.textContent = evaluate().toFixed(9);
+  answer.textContent = evaluate();
 })
 
 
