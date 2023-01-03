@@ -7,4 +7,5 @@ This is a basic calculator app that performs simple arithmetic calculations.
 - CSS
 - JavaScript
 - Git
-
+### Live Preview
+[Calculator](https://malopro.github.io/Calculator/)
